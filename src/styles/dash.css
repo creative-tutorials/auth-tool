@@ -1,5 +1,7 @@
 :root {
   --light: rgb(255, 255, 255);
+  --grey: rgb(198, 198, 198);
+  --dark-grey: rgb(129, 129, 129);
   --purple: rgb(110, 133, 183);
 }
 ._dashboardComponent {
@@ -52,4 +54,89 @@
 }
 ._list ._list_text {
     font-size: 1.2rem;
+}
+
+.col-right_s1 {
+  margin-left: 245px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+._tp_greet {
+  font-weight: 500;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+._tp_greet #user {
+  margin-left: 5px;
+}
+._session_ ._userSession ._session_table {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+._session_ ._userSession {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+._session_table {
+  position: relative;
+}
+._session_table::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  width: 100%;
+  height: 1.2px;
+  background: var(--grey);
+  border-radius: 5px;
+}
+._session_table #name {
+  font-weight: 500;
+  font-size: 1.3rem;
+  position: relative;
+}
+._session_table #name::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100px;
+  width: 2px;
+  height: 30px;
+  background-color: rgb(196, 196, 196);
+}
+._session_table #name:last-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100px;
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+}
+._c9 {
+  margin-top: 20px;
+  padding: 10px;
+}
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: transparent;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+._c9 ._session_service i,
+._session_status i,
+._session_location i {
+  font-size: 1.3rem;
+  color: var(--dark-grey);
 }
