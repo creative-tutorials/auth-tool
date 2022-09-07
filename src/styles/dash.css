@@ -1,0 +1,55 @@
+:root {
+  --light: rgb(255, 255, 255);
+  --purple: rgb(110, 133, 183);
+}
+._dashboardComponent {
+  width: 100%;
+  height: 100%;
+}
+.cols {
+  display: flex;
+  align-items: center;
+}
+.col-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100% - 950px);
+  height: 100%;
+  background: var(--light);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  border-right: 3px solid var(--purple);
+}
+.col-left ._app_name {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #000000;
+}
+.list_components {
+  margin-top: 20px;
+}
+.list_components ._list {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--light);
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+._list:hover {
+    border-right: 3px solid var(--purple);
+    padding-left: 10px;
+    color: var(--purple);
+}
+._list ._list_icon {
+    margin-right: 5px;
+    font-size: 1.4rem;
+}
+._list ._list_text {
+    font-size: 1.2rem;
+}
