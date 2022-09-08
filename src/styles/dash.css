@@ -3,6 +3,7 @@
   --grey: rgb(198, 198, 198);
   --dark-grey: rgb(129, 129, 129);
   --purple: rgb(110, 133, 183);
+  --dark-purple: rgb(43, 58, 90);
 }
 ._dashboardComponent {
   width: 100%;
@@ -13,16 +14,18 @@
   align-items: center;
 }
 .col-left {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
-  width: calc(100% - 950px);
+  width: 250px;
   height: 100%;
   background: var(--light);
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
   border-right: 3px solid var(--purple);
+  z-index: 999;
+  flex-wrap: wrap;
 }
 .col-left ._app_name {
   font-size: 1.4rem;
@@ -81,6 +84,8 @@
   background-color: #fff;
   width: 100%;
   height: 100%;
+  /* max-height: 500px; */
+  /* overflow-y: scroll; */
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
@@ -123,11 +128,16 @@
 ._c9 {
   margin-top: 20px;
   padding: 10px;
+  /* height: 100%; */
+  height: 100%;
+  max-height: 500px;
+  overflow-y: scroll;
 }
 .content {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
   background-color: transparent;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -139,4 +149,51 @@
 ._session_location i {
   font-size: 1.3rem;
   color: var(--dark-grey);
+}
+.addButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.addButton #add_session {
+  padding: 15px 20px;
+  border-radius: 8px;
+  background: var(--light);
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  color: var(--dark-purple);
+  font-weight: 500;
+  position: relative;
+}
+#add_session::before {
+  content: '+';
+  position: absolute;
+  top: 10px;
+  left: -90px;
+  background: #fff;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  color: var(--dark-purple);
+  font-size: 1.4rem;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+#add_session:hover::before {
+  left: -43px;
+  opacity: 1;
+  pointer-events: auto;
+}
+#add_session::before:hover {
+  opacity: 1;
+  pointer-events: auto;
+  right: -43px;
 }
