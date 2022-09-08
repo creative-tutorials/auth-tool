@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "express": "^4.18.1",
     "otp-generator": "^4.0.0",
     "react": "^18.2.0",
