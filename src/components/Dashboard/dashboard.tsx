@@ -10,7 +10,6 @@ import { useState, useEffect, useRef } from "react";
 
 const dashboardComponent = () => {
   let isLoaded = false;
-  const ComponentDiv = useRef();
   /* A reference to the div with the class name `_c9`. */
   const div = useRef();
 
@@ -98,9 +97,11 @@ const dashboardComponent = () => {
     }
     console.log("loadState", isLoaded);
   };
+  /**
+   * When the user clicks the button, the class 'active' is added to the div.
+   */
   const toggleAddButton = () => {
-    const newComponent = ComponentDiv.current;
-    newComponent.classList.add("active");
+    localStorage.setItem('class', 'active');
   };
 
   return (
@@ -138,7 +139,6 @@ const dashboardComponent = () => {
         </button>
       </div>
       <AddSession
-        ComponentDiv={ComponentDiv}
         email={email}
         facebook={facebook}
         google={google}
