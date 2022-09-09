@@ -40,8 +40,8 @@ const dashboardComponent = () => {
         );
       }
       async function successFunction(position: any) {
-        var lat = position.coords.latitude;
-        var long = position.coords.longitude;
+        const lat = position.coords.latitude;
+        const long = position.coords.longitude;
         console.log(lat, long);
         console.log(position);
         /* Fetching data from the API. */
