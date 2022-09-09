@@ -41,9 +41,11 @@ const dashboardComponent = () => {
       async function successFunction(position: any) {
         var lat = position.coords.latitude;
         var long = position.coords.longitude;
+        console.log(lat, long);
+        console.log(position);
         /* Fetching data from the API. */
         await fetch(
-          `http://localhost:5000/api/sessions/${lat}/${long}`,
+          `http://localhost:4000/api/sessions/${lat}/${long}`,
           headersList
         )
           .then((response) => response.json())

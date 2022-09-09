@@ -12,7 +12,7 @@
 .componentConent {
   position: absolute;
   top: -200%;
-  left: 50%;
+  left: 60%;
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 600px;
@@ -20,10 +20,10 @@
   background: var(--light);
   border-radius: 8px;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .componentConent.active {
-    top: 50%;
+    top: 58%;
 }
 .componentConent h3 {
   text-align: center;
