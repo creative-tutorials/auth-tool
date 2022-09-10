@@ -1,29 +1,23 @@
 import React from "react";
 import { useState, useEffect } from "react";
-export function AddSession({ email, facebook, google, twitter, text }) {
-  const [isLoaded, setisLoaded] = useState(false);
+export function AddSession({
+  Rendered,
+  email,
+  facebook,
+  google,
+  twitter,
+  text,
+}: any) {
   useEffect(() => {
-    Check();
-    console.log("hmm");
+    return console.log("Loading...");
   });
 
   const RenderEmailComponent = () => {
     window.location.pathname = "/session/email";
   };
-  const Check = () => {
-    const getClassEvent = localStorage.getItem("class");
-    if (getClassEvent) {
-        setisLoaded(true);
-    }
-    if (!getClassEvent) {
-       setisLoaded(false);
-    }
-
-    console.log(isLoaded);
-  };
   return (
     <div className="addComponent">
-      {isLoaded ? (
+      {Rendered ? (
         <div className="componentConent">
           <h3>{text}</h3>
           <div id="session_block">
