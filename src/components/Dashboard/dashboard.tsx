@@ -9,6 +9,7 @@ import twitter from "/twitter.svg";
 import { useState, useEffect, useRef } from "react";
 
 const dashboardComponent = () => {
+  const [isRendered, setisRendered] = useState(false);
   let isLoaded = false;
   /* A reference to the div with the class name `_c9`. */
   const div = useRef();
@@ -67,15 +68,15 @@ const dashboardComponent = () => {
               /* Creating a new div element. */
               createDiv.className = `${"content"}`;
               createDiv.innerHTML = `<div class="_session_service">
-          <i class="fa-solid fa-shield-keyhole"></i>
-          ${arr.service}
-        </div>
-        <div class="_session_status">
-          <i class="fa-regular fa-lock-keyhole"></i> ${arr.status}
-        </div>
-        <div class="_session_location">
-          <i class="fa-solid fa-location-dot"></i> ${location}
-        </div>`;
+              <i class="fa-solid fa-shield-keyhole"></i>
+              ${arr.service}
+            </div>
+            <div class="_session_status">
+              <i class="fa-regular fa-lock-keyhole"></i> ${arr.status}
+            </div>
+            <div class="_session_location">
+              <i class="fa-solid fa-location-dot"></i> ${location}
+            </div>`;
               /* Appending the `createDiv` element to the `isCurrent` element. */
               isCurrent.appendChild(createDiv);
               /* Returning the array of objects. */
@@ -101,7 +102,17 @@ const dashboardComponent = () => {
    * When the user clicks the button, the class 'active' is added to the div.
    */
   const toggleAddButton = () => {
-    localStorage.setItem('class', 'active');
+    /* Setting the value of the key `class` to `active`. */
+    localStorage.setItem("class", "active");
+    console.log("Loaded");
+    const getClassEvent = localStorage.getItem("class");
+    if (getClassEvent) {
+      setisRendered(true);
+    }
+    if (!getClassEvent) {
+      setisRendered(false);
+    }
+    console.log(isRendered);
   };
 
   return (
@@ -144,6 +155,7 @@ const dashboardComponent = () => {
         google={google}
         twitter={twitter}
         text={"Add new Session"}
+        Rendered={isRendered}
       />
     </div>
   );
