@@ -1,6 +1,6 @@
 :root {
   --Dark: rgba(36, 40, 48, 255);
-  --Light: rgb(110, 133, 183);
+  --Light: rgba(231,235,238,255);
 }
 * {
   margin: 0;

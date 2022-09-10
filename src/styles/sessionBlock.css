@@ -21,7 +21,7 @@
   border-radius: 50%;
 }
 .ldio-mgbhxi1hx8k div {
-  display: none;
+  /* display: none; */
   animation: ldio-mgbhxi1hx8k 0.9s linear infinite;
 }
 .loadingio-spinner-rolling-qi1fv3910k {
@@ -34,19 +34,20 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 12px;
   border-radius: 5px;
   outline: none;
   border: none;
-  background: var(--purple);
+  background: var(--dark-purple);
   cursor: pointer;
   width: 100%;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 button #button-text {
   margin-left: 10px;
   font-weight: 500;
-  font-size: 1.3rem;
-  color: #000000;
+  font-size: 1.2rem;
+  color: #ffff;
 }
 #firstBlock {
   display: flex;
@@ -65,16 +66,16 @@ button #button-text {
 #blockContainer::before {
   content: "";
   position: absolute;
-  top: 70px;
+  top: 99px;
   left: 0;
   width: 100%;
-  height: 1.4px;
+  height: 1.9px;
   background-color: var(--grey);
 }
 #text-block h2 {
   text-align: center;
   font-size: 1.3rem;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   color: var(--dark-purple);
 }
 .form-container #input_box {
@@ -102,7 +103,21 @@ button #button-text {
   left: 18px;
   top: 18px;
   color: var(--dark-grey);
+  transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 #input_box input:focus ~ i {
-    color: var(--purple);
+  color: var(--dark-purple);
+}
+#error-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 20px;
+  font-weight: 500;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+  transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
