@@ -1,29 +1,33 @@
+import { FormContainer } from "../views/formContainer";
+
+import { ErrorContainer } from "../views/errorContainer";
 import { CheckValidation } from "../Auth/StatusValidation";
 import "../../styles/sessionBlock.css";
 import { useRef, useState } from "react";
 function EmailComponent() {
+  const [message, setMessage] = useState("");
+  const [isContainerActive, setisContainerActive] = useState(false);
+  const [isLoaderActive, setisLoaderActive] = useState(false);
   let status = CheckValidation();
   const EmailInputValue = useRef();
   const PasswordInputValue = useRef();
   const handleRequest = async () => {
-    const emailValue = EmailInputValue.current;
-    const passwordValue = PasswordInputValue.current;
+    const emailValue = EmailInputValue.current.value;
+    const passwordValue = PasswordInputValue.current.value;
 
-    if (!emailValue.value || !passwordValue.value) {
+    if (!emailValue || !passwordValue) {
       status.message = "Error";
     } else {
-      MoreValidation();
+      ValidateEmailInput();
     }
 
-    function MoreValidation() {
+    function ValidateEmailInput() {
       const validRegex =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       const prefix = ".";
-      if (
-        emailValue.value.match(validRegex) &&
-        emailValue.value.includes(prefix)
-      ) {
+      if (emailValue.match(validRegex) && emailValue.includes(prefix)) {
         status.message = "Success";
+        setMessage((message) => "");
       } else {
         status.message = "Error";
       }
@@ -31,24 +35,53 @@ function EmailComponent() {
 
     if (status.message === "Success") {
       const objData = {
-        service: emailValue.value,
+        service: emailValue,
         status: null,
         location: null,
-      }
-      const options = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(objData)
       };
-      
-      await fetch('http://localhost:4000/session/add', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
+      const options = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(objData),
+      };
+      setisLoaderActive(true);
+
+      setTimeout(async () => {
+        try {
+          const response = await fetch(
+            "http://localhost:4000/session/add",
+            options
+          );
+          console.log(response);
+          if (response.status === 401) {
+            setisContainerActive(true);
+            setisLoaderActive(true);
+            setMessage((message) => response.statusText);
+          }
+
+          if (response.ok) {
+            const result = await response.json();
+            console.log(result);
+            setisLoaderActive(false);
+            setMessage((message) => "Data Created Sucessfully");
+          }
+        } catch (err) {
+          console.error(err);
+        }
+        setisLoaderActive(false);
+      }, 3000);
     }
     if (status.message === "Error") {
-      return console.error("Returned Error");
+      setMessage(
+        (message) =>
+          "Couldn't complete request, check your inputs and try again"
+      );
+      setisContainerActive(true);
+      return console.error(
+        "Couldn't complete request, check your inputs and try again"
+      );
     }
+    /* Logging the status object to the console. */
     console.log(status);
   };
 
@@ -58,35 +91,14 @@ function EmailComponent() {
         <div id="text-block">
           <h2>Add your session using Email & Password</h2>
         </div>
-        <div className="form-container">
-          <div id="input_box">
-            <input
-              type="text"
-              placeholder="Enter your email address"
-              ref={EmailInputValue}
-            />
-            <i className="fa-solid fa-envelope"></i>
-          </div>
-          <div id="input_box">
-            <input
-              type="password"
-              placeholder="Enter your password"
-              ref={PasswordInputValue}
-            />
-            <i className="fa-solid fa-lock"></i>
-          </div>
-          <div id="button-container">
-            <button onClick={handleRequest}>
-              <div className="loadingio-spinner-rolling-qi1fv3910k">
-                <div className="ldio-mgbhxi1hx8k">
-                  <div></div>
-                </div>
-              </div>
-              <span id="button-text">Submit Request</span>
-            </button>
-          </div>
-        </div>
+        <FormContainer
+          EmailInputValue={EmailInputValue}
+          PasswordInputValue={PasswordInputValue}
+          handleRequest={handleRequest}
+          isLoaderActive={isLoaderActive}
+        />
       </div>
+      <ErrorContainer isContainerActive={isContainerActive} message={message} />
     </div>
   );
 }
