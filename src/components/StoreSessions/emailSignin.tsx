@@ -34,10 +34,19 @@ function EmailComponent() {
     }
 
     if (status.message === "Success") {
+      if (navigator.geolocation) return navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+      function successFunction(position: any) {
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+        
       const objData = {
         service: emailValue,
         status: null,
-        location: null,
+        coordinates: {
+          longitude: long,
+          latitude: lat,
+      },
+      street: "testing"
       };
       const options = {
         method: "POST",
@@ -65,11 +74,14 @@ function EmailComponent() {
             setisLoaderActive(false);
             setMessage((message) => "Data Created Sucessfully");
           }
-        } catch (err) {
+        } catch (err: any) {
           console.error(err);
+          setisContainerActive(false);
+          setMessage((message) => err);
         }
         setisLoaderActive(false);
       }, 3000);
+    }
     }
     if (status.message === "Error") {
       setMessage(
@@ -80,6 +92,9 @@ function EmailComponent() {
       return console.error(
         "Couldn't complete request, check your inputs and try again"
       );
+    }
+    function errorFunction(message: "You denied permission") {
+      console.log("Error: " + message)
     }
     /* Logging the status object to the console. */
     console.log(status);

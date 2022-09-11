@@ -29,69 +29,50 @@ const dashboardComponent = () => {
       method: "GET",
     };
     if (isLoaded) {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          successFunction,
-          errorFunction
-        );
-      } else {
-        alert(
-          "It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it."
-        );
-      }
-      async function successFunction(position: any) {
-        const lat = position.coords.latitude;
-        const long = position.coords.longitude;
-        console.log(lat, long);
-        console.log(position);
-        /* Fetching data from the API. */
-        await fetch(
-          `http://localhost:4000/api/sessions/${lat}/${long}`,
-          headersList
-        )
-          .then((response) => response.json())
-          .then((result) => {
-            const sessionObj = result.sessionObj;
-            const location = result.data;
-            /**
-             * The function takes an array of objects and returns an array of objects with the same keys
-             * but with the values of the keys converted to strings.
-             * </code>
-             * @param {any} arr - any -&gt; this is the array that you want to map
-             */
-            const newArr = sessionObj.map(myFunction);
+      /* Fetching data from the API. */
+      await fetch(
+        `http://localhost:4000/api/sessions`,
+        headersList
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+          const sessionObj = result;
+          /**
+           * The function takes an array of objects and returns an array of objects with the same keys
+           * but with the values of the keys converted to strings.
+           * </code>
+           * @param {any} arr - any -&gt; this is the array that you want to map
+           */
+          const newArr = sessionObj.map(myFunction);
 
-            function myFunction(arr: any) {
-              const createDiv = document.createElement("div");
-              /* Getting the current value of the ref. */
-              const isCurrent = div.current;
-              /* Creating a new div element. */
-              createDiv.className = `${"content"}`;
-              createDiv.innerHTML = `<div class="_session_service">
-              <i class="fa-solid fa-shield-keyhole"></i>
-              ${arr.service}
-            </div>
-            <div class="_session_status">
-              <i class="fa-regular fa-lock-keyhole"></i> ${arr.status}
-            </div>
-            <div class="_session_location">
-              <i class="fa-solid fa-location-dot"></i> ${location}
-            </div>`;
-              /* Appending the `createDiv` element to the `isCurrent` element. */
-              isCurrent.appendChild(createDiv);
-              /* Returning the array of objects. */
-              return console.log(arr);
-            }
-          })
-          /* Catching any errors that may occur during the fetching of data from the API. */
-          .catch((error) => {
-            console.log(error);
-            isLoaded = false;
-          });
-      }
-      async function errorFunction() {
-        return console.error("You denied access to this application");
-      }
+          function myFunction(arr: any) {
+            const createDiv = document.createElement("div");
+            /* Getting the current value of the ref. */
+            const isCurrent = div.current;
+            /* Creating a new div element. */
+            createDiv.className = `${"content"}`;
+            createDiv.innerHTML = `<div class="_session_service">
+            <i class="fa-solid fa-shield-keyhole"></i>
+            ${arr.service}
+          </div>
+          <div class="_session_status">
+            <i class="fa-regular fa-lock-keyhole"></i> ${arr.status}
+          </div>
+          <div class="_session_location">
+            <i class="fa-solid fa-location-dot"></i> ${arr.street}
+          </div>`;
+            /* Appending the `createDiv` element to the `isCurrent` element. */
+            isCurrent.appendChild(createDiv);
+            /* Returning the array of objects. */
+            return console.log(arr);
+          }
+        })
+        /* Catching any errors that may occur during the fetching of data from the API. */
+        .catch((error) => {
+          console.log(error);
+          isLoaded = false;
+        });
     }
     if (!isLoaded) {
       return console.error("Error loading content");
