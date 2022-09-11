@@ -12,7 +12,7 @@ export function AddSession({
     return console.log("Loading...");
   });
 
-  const RenderEmailComponent = () => {
+  const RouteEmailSessionPath = () => {
     window.location.pathname = "/session/email";
   };
   return (
@@ -22,7 +22,7 @@ export function AddSession({
           <h3>{text}</h3>
           <div id="session_block">
             <div id="c6">
-              <div id="k-list" onClick={RenderEmailComponent}>
+              <div id="k-list" onClick={RouteEmailSessionPath}>
                 <img src={email} alt="email icon" />
                 <span id="k-list-name">Login using Email</span>
               </div>
