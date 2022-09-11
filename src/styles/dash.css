@@ -134,15 +134,23 @@
   overflow-y: scroll;
 }
 .content {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
+
   background-color: transparent;
-  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 8px;
+  border-collapse: collapse;
+  width: 100%;
+}
+.content td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.content tr:nth-child(even) {
+  background-color: #dddddd;
 }
 ._c9 ._session_service i,
 ._session_status i,
