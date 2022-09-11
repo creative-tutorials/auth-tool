@@ -98,15 +98,14 @@ const dashboardComponent = () => {
     }
     console.log("loadState", isLoaded);
   };
-  /**
-   * When the user clicks the button, the class 'active' is added to the div.
-   */
   const toggleAddButton = () => {
     /* Setting the value of the key `class` to `active`. */
     localStorage.setItem("class", "active");
     console.log("Loaded");
     const getClassEvent = localStorage.getItem("class");
+
     if (getClassEvent) {
+      /* Checking if the value of the key `class` is equal to `active`. */
       setisRendered(true);
     }
     if (!getClassEvent) {
