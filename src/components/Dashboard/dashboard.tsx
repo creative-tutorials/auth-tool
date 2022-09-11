@@ -30,10 +30,7 @@ const dashboardComponent = () => {
     };
     if (isLoaded) {
       /* Fetching data from the API. */
-      await fetch(
-        `http://localhost:4000/api/sessions`,
-        headersList
-      )
+      await fetch(`http://localhost:4000/api/sessions`, headersList)
         .then((response) => response.json())
         .then((result) => {
           console.log(result);
@@ -47,21 +44,16 @@ const dashboardComponent = () => {
           const newArr = sessionObj.map(myFunction);
 
           function myFunction(arr: any) {
-            const createDiv = document.createElement("div");
+            const createDiv = document.createElement("table");
             /* Getting the current value of the ref. */
             const isCurrent = div.current;
             /* Creating a new div element. */
             createDiv.className = `${"content"}`;
-            createDiv.innerHTML = `<div class="_session_service">
-            <i class="fa-solid fa-shield-keyhole"></i>
-            ${arr.service}
-          </div>
-          <div class="_session_status">
-            <i class="fa-regular fa-lock-keyhole"></i> ${arr.status}
-          </div>
-          <div class="_session_location">
-            <i class="fa-solid fa-location-dot"></i> ${arr.street}
-          </div>`;
+            createDiv.innerHTML = `<tr>
+            <th><i class="fa-solid fa-shield-keyhole"></i> ${arr.service}</th>
+            <th><i class="fa-regular fa-lock-keyhole"></i> ${arr.status}</th>
+            <th><i class="fa-solid fa-location-dot"></i> ${arr.street}</th>
+          </tr>`;
             /* Appending the `createDiv` element to the `isCurrent` element. */
             isCurrent.appendChild(createDiv);
             /* Returning the array of objects. */
