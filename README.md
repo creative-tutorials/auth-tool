@@ -1,5 +1,7 @@
 ## AuthyWebServiceClient
 
+<button><a href="http://discord.com" style="color: black;text-decoration: none; padding: 10px 10px;">Join Us</a></button>
+
 ![Screenshot of stored sessions](public/Vite-React-TS.png)
 
 `AuthyWebServiceClient` is a tool to help you create a new secured token with session authentication.
