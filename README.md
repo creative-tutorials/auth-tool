@@ -2,7 +2,7 @@
 
 [Join Us](http://discord.com)
 
-![Screenshot of stored sessions](public/Vite-React-TS.png)
+<a href="https://github.com/creative-tutorials/auth-tool/blob/master/public/Vite-React-TS.png" title="Image of stored sessions"><img src="public/Vite-React-TS.png" alt="Screenshot of stored sessions" /></a>
 
 `AuthyWebServiceClient` is a tool to help you create a new secured token with session authentication.
 
@@ -32,7 +32,7 @@ When you add new session or load the dashboard page, you are making a request to
 
 ## Video Guide on How to use App
 
-<a href="https://raw.githubusercontent.com/creative-tutorials/auth-tool/master/public/AwesomeScreenshot-9_12_2022%2C7%2010%2037PM.mp4" title="Link Title"><img src="public/Vite-React-TS.png" alt="Alternate Text" /></a>
+<a href="https://raw.githubusercontent.com/creative-tutorials/auth-tool/master/public/AwesomeScreenshot-9_12_2022%2C7%2010%2037PM.mp4" title="Demo Video"><img src="public/Vite-React-TS.png" alt="Alternate Text" /></a>
 
 
 ## Features
