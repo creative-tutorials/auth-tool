@@ -30,7 +30,8 @@ When you add new session or load the dashboard page, you are making a request to
 
 ## Video Guide on How to use App
 
-[!Demo](public/AwesomeScreenshot-9_12_2022,7%2010%2037PM.mp4)
+[![!Demo](https://raw.githubusercontent.com/creative-tutorials/auth-tool/master/public/AwesomeScreenshot-9_12_2022%2C7%2010%2037PM.mp4)]
+
 
 ## Features
 
@@ -43,7 +44,6 @@ More features are coming soon 👐
 
 ---
 
-<<<<<<< HEAD
 ### 🔐 Providers supported
 
 *   Google
@@ -65,6 +65,3 @@ For Google Auth and other providers seek our [blog](https://github.com)
 Website coming soon
 
 > _Made with 💖_
-=======
-> Made with 💖
->>>>>>> 5b7e5969ff86956cb7f393e61ab5dd424f42ae12
