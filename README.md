@@ -37,7 +37,7 @@ When you add new session or load the dashboard page, you are making a request to
 
 > ## _🔔 Take note_
 
-If you watched the video, you'll notice that when I started creating new session login, it sent a response of 401 - Unauthenticated, this is because my session with the email address already exist on the memory address.
+If you watched the video, you'll notice that when I started creating new session login, it sent a response of 401 - Unauthorized, this is because my session with the email address already exist on the memory address.
 
 
 ## Features
@@ -63,7 +63,7 @@ More features are coming soon 👐
 
 We don't store your password, we only store the information that you provide to us.
 
-For Google Auth and other providers seek our [blog](https://github.com)
+For more information seek => [blog](https://github.com)
 
 ### More Information
 
