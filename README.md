@@ -30,7 +30,7 @@ When you add new session or load the dashboard page, you are making a request to
 
 ## Video Guide on How to use App
 
-<video src="https://raw.githubusercontent.com/creative-tutorials/auth-tool/master/public/AwesomeScreenshot-9_12_2022%2C7%2010%2037PM.mp4" width="500px" height="500px" autoplay="true" controls="true"></video>
+<a href="https://raw.githubusercontent.com/creative-tutorials/auth-tool/master/public/AwesomeScreenshot-9_12_2022%2C7%2010%2037PM.mp4" title="Link Title"><img src="public/Vite-React-TS.png" alt="Alternate Text" /></a>
 
 
 ## Features
