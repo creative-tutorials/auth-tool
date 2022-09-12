@@ -2,7 +2,7 @@ import { FormContainer } from "../views/formContainer";
 
 import { ErrorContainer } from "../views/errorContainer";
 import { CheckValidation } from "../Auth/StatusValidation";
-import "../../styles/sessionBlock.css";
+import "../../styles/form.css";
 import { useRef, useState } from "react";
 function EmailComponent() {
   const [message, setMessage] = useState("");
@@ -40,8 +40,9 @@ function EmailComponent() {
         let long = position.coords.longitude;
         
       const objData = {
-        service: emailValue,
-        status: null,
+        email: emailValue,
+        providers: "Email",
+        loginTime: null,
         coordinates: {
           longitude: long,
           latitude: lat,
@@ -93,8 +94,8 @@ function EmailComponent() {
         "Couldn't complete request, check your inputs and try again"
       );
     }
-    function errorFunction(message: "You denied permission") {
-      console.log("Error: " + message)
+    function errorFunction() {
+      console.log("You denied permission to access your location")
     }
     /* Logging the status object to the console. */
     console.log(status);

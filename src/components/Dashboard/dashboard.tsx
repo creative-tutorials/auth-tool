@@ -1,7 +1,7 @@
 import { Sidebar } from "../views/sidebar";
 import { AddSession } from "../AddSession/addSession";
 import "../../styles/dash.css";
-import "../../styles/sessionDiv.css";
+import "../../styles/modal.css";
 import email from "/email.svg";
 import facebook from "/facebook-logo-2019.svg";
 import google from "/google.svg";
@@ -23,48 +23,86 @@ const dashboardComponent = () => {
 
   const LoadContent = async () => {
     isLoaded = true;
-    /* Setting the headers of the request. */
-    let headersList = {
-      "Content-Type": "application/json",
-      method: "GET",
-    };
     if (isLoaded) {
-      /* Fetching data from the API. */
-      await fetch(`http://localhost:4000/api/sessions`, headersList)
-        .then((response) => response.json())
-        .then((result) => {
-          console.log(result);
-          const sessionObj = result;
-          /**
-           * The function takes an array of objects and returns an array of objects with the same keys
-           * but with the values of the keys converted to strings.
-           * </code>
-           * @param {any} arr - any -&gt; this is the array that you want to map
-           */
-          const newArr = sessionObj.map(myFunction);
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      try {
+        const response = await fetch(
+          "http://localhost:4000/api/sessions",
+          options
+        );
 
-          function myFunction(arr: any) {
-            const createDiv = document.createElement("table");
-            /* Getting the current value of the ref. */
-            const isCurrent = div.current;
-            /* Creating a new div element. */
-            createDiv.className = `${"content"}`;
-            createDiv.innerHTML = `<tr>
-            <th><i class="fa-solid fa-shield-keyhole"></i> ${arr.service}</th>
-            <th><i class="fa-regular fa-lock-keyhole"></i> ${arr.status}</th>
-            <th><i class="fa-solid fa-location-dot"></i> ${arr.street}</th>
-          </tr>`;
-            /* Appending the `createDiv` element to the `isCurrent` element. */
-            isCurrent.appendChild(createDiv);
-            /* Returning the array of objects. */
-            return console.log(arr);
-          }
-        })
-        /* Catching any errors that may occur during the fetching of data from the API. */
-        .catch((error) => {
-          console.log(error);
-          isLoaded = false;
-        });
+        if (response.ok) {
+          const result = await response.json();
+          // console.log(result);
+          // map through the result
+          const reslt = result;
+
+          /* Mapping through the result of the API call. */
+          const mapItems = reslt.map(
+            (item: {
+              email: any;
+              providers: any;
+              logtime: any;
+              street: any;
+              coordinates: any;
+            }) => {
+              /**
+               * The function Opt is a constructor function that takes in 5 parameters and assigns them
+               * to the properties of the object that is being created.
+               * @param {any}  - email -&gt; email of the user
+               * @param {any} email - string
+               * @param {any} provider - "google"
+               * @param {any} logtime - "2019-01-01T00:00:00.000Z"
+               * @param {any} street - is the street name
+               * @param {any} coordinates - [longitude, latitude]
+               */
+              function Opt(
+                this: any,
+                email: any,
+                provider: any,
+                logtime: any,
+                street: any,
+                coordinates: any
+              ) {
+                this.userEmail = email;
+                (this.providers = provider),
+                  (this.logintime = logtime),
+                  (this.area = street),
+                  (this.coord = coordinates);
+              }
+              const myoptions = new (Opt as any)(
+                item.email,
+                item.providers,
+                item.logtime,
+                item.street,
+                item.coordinates
+              );
+              console.log(myoptions);
+              const _c9: any = div.current;
+              const table = document.createElement("table");
+              _c9.appendChild(table);
+              table.innerHTML = `<tr> 
+              <td>${myoptions.providers}</td>
+              <td>${myoptions.logintime}</td>
+              <td>${myoptions.area}</td>
+            </tr>`;
+              const checkProvider = myoptions.providers;
+              if (checkProvider === undefined) {
+                console.warn(`Provider ${checkProvider} not found`);
+              } else {
+                console.info(`Provider ${checkProvider} found`);
+              }
+            }
+          );
+        }
+      } catch (err) {
+        console.error(err);
+      }
     }
     if (!isLoaded) {
       return console.error("Error loading content");
@@ -104,9 +142,8 @@ const dashboardComponent = () => {
               </div>
               <div className="_userSession">
                 <div className="_session_table">
-                  <div id="name">Service</div>
-                  <div id="name">Status</div>
-                  <div id="name">Location</div>
+                  <div id="name">Latest sessions</div>
+                  <a href="/sessions" id="view">View All</a>
                 </div>
                 <div className="_c9" ref={div}>
                   {/*  */}

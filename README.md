@@ -1,6 +1,8 @@
-## Auth-tool application
+## AuthyWebServiceClient
 
-`auth-tool app` is a tool to help you create a new secured token with session authentication.
+![Screenshot of stored sessions](public/Vite-React-TS.png)
+
+`AuthyWebServiceClient` is a tool to help you create a new secured token with session authentication.
 
 ## Description
 
@@ -17,31 +19,7 @@ If you created a recent session, you'll notice you can't create another session 
 
 ### Make a request
 
-Here is what is going on under the hood when making a request to the API
-
-```javascript
-/* Adding a new session to the sessions array. */
-app.post("/session/add", (req, res) => {
-  const new_session = req.body;
-  const findSession = sessions.find(
-    (findSession) => findSession.service === req.body.service
-  );
-  /* Checking if the session already exists. If it does, it will return a 401 status code with a
-  message. If it doesn't, it will add the new session to the sessions array and return a 201 status
-  code with the new session. */
-  if (findSession) {
-    res.status(401).send({
-      message: "already existing session located",
-    });
-  } else {
-    /* Setting the location property of the findLocation object to the location property of the
-        req.body object. */
-    // findLocation.location = req.body.location;
-    sessions.push(new_session);
-    res.status(201).send(new_session);
-  }
-});
-```
+When you add new session or load the dashboard page, you are making a request to our API, our API handles everything that makes the app work.
 
 ## How to use the App
 
@@ -49,6 +27,10 @@ app.post("/session/add", (req, res) => {
 *   After you've successfully created an account, you must remember to validate your account otherwise it will be deleted with 7 days
 *   Once that process is completed you can start adding new session login, also note that when the session page loads you get an example session already added, this is to brief out what's going on here, so you get a better understanding of which information you're giving to us.
 *   You can add as many sessions as you want, with no limit.
+
+## Video Guide on How to use App
+
+[!Demo](public/AwesomeScreenshot-9_12_2022,7%2010%2037PM.mp4)
 
 ## Features
 
@@ -61,4 +43,24 @@ More features are coming soon 👐
 
 ---
 
-> Made with 💖
+### 🔐 Providers supported
+
+*   Google
+*   Email
+*   Facebook
+*   Twitter
+*   🔜 More coming soon
+
+### 🚨 Disclaimer
+
+We don't store your password, we only store the information that you provide to us.
+
+For Google Auth and other providers seek our [blog](https://github.com)
+
+### More Information
+
+[Discord](https://discord.com)
+[Twitter](https://twitter.com)
+Website coming soon
+
+> _Made with 💖_

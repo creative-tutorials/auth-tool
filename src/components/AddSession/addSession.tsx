@@ -13,7 +13,7 @@ export function AddSession({
   });
 
   const RouteEmailSessionPath = () => {
-    window.location.pathname = "/session/email";
+    window.location.pathname = "/provider/email";
   };
   return (
     <div className="addComponent">
