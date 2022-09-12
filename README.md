@@ -63,7 +63,7 @@ More features are coming soon 👐
 
 We don't store your password, we only store the information that you provide to us.
 
-For Google Auth and other providers seek our [blog](https://github.com)
+For more information seek => [blog](https://github.com)
 
 ### More Information
 
