@@ -13,7 +13,7 @@ An authentication app to store and generate secure tokens for more secure login.
 
 ## How to validate the token
 
-If you created a recent session, you'll notice you can't create another session because your session already exist on the memory address.
+If you created a recent session with same details, you'll notice you can't create another session because your session already exist on the memory address.
 
 ### Make a request
 
