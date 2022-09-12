@@ -35,6 +35,11 @@ When you add new session or load the dashboard page, you are making a request to
 <a href="https://raw.githubusercontent.com/creative-tutorials/auth-tool/master/public/AwesomeScreenshot-9_12_2022%2C7%2010%2037PM.mp4" title="Demo Video"><img src="public/Vite-React-TS.png" alt="Alternate Text" /></a>
 
 
+> ## _🔔 Take note_
+
+If you watched the video, you'll notice that when I started creating new session login, it sent a response of 401 - Unauthenticated, this is because my session with the email address already exist on the memory address.
+
+
 ## Features
 
 *   [x] Multiple Session Login
