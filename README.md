@@ -1,6 +1,6 @@
 ## AuthyWebServiceClient
 
-<a href="http://discord.com" title="dribble" style="display: flex;align-items: center;"><img src="public/dribble.svg" alt="dribble" width="30px" style="margin-right: 5px;"/>Join Us</a>
+<a href="http://discord.com" title="discord" style="display: flex; align-items: center;"><img src="public/discord.svg" alt="discord" width="30px" style="margin-right: 5px;"/>Join Us</a>
 
 
 <a href="https://github.com/creative-tutorials/auth-tool/blob/master/public/Vite-React-TS.png" title="Image of stored sessions"><img src="public/Vite-React-TS.png" alt="Screenshot of stored sessions" /></a>
