@@ -1,7 +1,8 @@
 ## AuthyWebServiceClient
 
+<br />
 
-<a href="http://discord.com" title="discord"><img src="public/discord.svg" alt="discord" width="30px" style="margin-right: 5px;"/>Join Us</a>
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/creative-tutorials/auth-tool) [![Discord-Connect](https://img.shields.io/badge/discord-JoinUs-green?logo=discord&style=plastic)](https://discordapp.com)
 
 
 <a href="https://github.com/creative-tutorials/auth-tool/blob/master/public/Vite-React-TS.png" title="Image of stored sessions"><img src="public/Vite-React-TS.png" alt="Screenshot of stored sessions" /></a>
