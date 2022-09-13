@@ -12,7 +12,7 @@ const dashboardComponent = () => {
   const [isRendered, setisRendered] = useState(false);
   let isLoaded = false;
   /* A reference to the div with the class name `_c9`. */
-  const div = useRef();
+  const div:any = useRef();
 
   useEffect(() => {
     return () => {

@@ -1,90 +1,55 @@
 import { FormContainer } from "../views/formContainer";
-
+import ValidationComponent from "../functions/validate";
 import { ErrorContainer } from "../views/errorContainer";
 import { CheckValidation } from "../Auth/StatusValidation";
 import "../../styles/form.css";
 import { useRef, useState } from "react";
+import { sendDataToAPI } from "../functions/checkReqData";
 function EmailComponent() {
   const [message, setMessage] = useState("");
   const [isContainerActive, setisContainerActive] = useState(false);
   const [isLoaderActive, setisLoaderActive] = useState(false);
+  const [isAllowed, setisAllowed] = useState(false)
   let status = CheckValidation();
-  const EmailInputValue = useRef();
-  const PasswordInputValue = useRef();
+  const EmailInputValue: any = useRef();
+  const PasswordInputValue: any = useRef();
   const handleRequest = async () => {
     const emailValue = EmailInputValue.current.value;
     const passwordValue = PasswordInputValue.current.value;
 
     if (!emailValue || !passwordValue) {
-      status.message = "Error";
+      setisAllowed(false);
     } else {
+      /* It's a function that checks if the request is valid. */
+      let ValidateEmailInput = ValidationComponent({
+        emailValue,
+        message,
+        setMessage,
+        setisAllowed,
+        isAllowed,
+      });
       ValidateEmailInput();
+      setisAllowed(true);
     }
 
-    function ValidateEmailInput() {
-      const validRegex =
-        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      const prefix = ".";
-      if (emailValue.match(validRegex) && emailValue.includes(prefix)) {
-        status.message = "Success";
-        setMessage((message) => "");
-      } else {
-        status.message = "Error";
+    if (isAllowed) {
+      if (navigator.geolocation)
+        return navigator.geolocation.getCurrentPosition(
+          successFunction,
+          errorFunction
+        );
+      function successFunction(position: any) {
+        /* It's a function that sends the requested data to the API. */
+        sendDataToAPI(
+          position,
+          emailValue,
+          setisLoaderActive,
+          setisContainerActive,
+          setMessage
+        );
       }
     }
-
-    if (status.message === "Success") {
-      if (navigator.geolocation) return navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
-      function successFunction(position: any) {
-        let lat = position.coords.latitude;
-        let long = position.coords.longitude;
-        
-      const objData = {
-        email: emailValue,
-        providers: "Email",
-        loginTime: null,
-        coordinates: {
-          longitude: long,
-          latitude: lat,
-      },
-      street: "testing"
-      };
-      const options = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(objData),
-      };
-      setisLoaderActive(true);
-
-      setTimeout(async () => {
-        try {
-          const response = await fetch(
-            "http://localhost:4000/session/add",
-            options
-          );
-          console.log(response);
-          if (response.status === 401) {
-            setisContainerActive(true);
-            setisLoaderActive(true);
-            setMessage((message) => response.statusText);
-          }
-
-          if (response.ok) {
-            const result = await response.json();
-            console.log(result);
-            setisLoaderActive(false);
-            setMessage((message) => "Data Created Sucessfully");
-          }
-        } catch (err: any) {
-          console.error(err);
-          setisContainerActive(false);
-          setMessage((message) => err);
-        }
-        setisLoaderActive(false);
-      }, 3000);
-    }
-    }
-    if (status.message === "Error") {
+    if (!isAllowed) {
       setMessage(
         (message) =>
           "Couldn't complete request, check your inputs and try again"
@@ -95,10 +60,10 @@ function EmailComponent() {
       );
     }
     function errorFunction() {
-      console.log("You denied permission to access your location")
+      console.log("You denied permission to access your location");
     }
     /* Logging the status object to the console. */
-    console.log(status);
+    console.log("status");
   };
 
   return (
