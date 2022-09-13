@@ -1,5 +1,6 @@
 ## AuthyWebServiceClient
 
+
 <a href="http://discord.com" title="discord"><img src="public/discord.svg" alt="discord" width="30px" style="margin-right: 5px;"/>Join Us</a>
 
 
