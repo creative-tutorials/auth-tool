@@ -58,7 +58,7 @@ More features are coming soon 👐
 
 *   Google
 *   Email
-*   Facebook
+*   Facebook (Soon 😟)
 *   Twitter
 *   🔜 More coming soon
 
