@@ -1,6 +1,8 @@
 export function sendDataToAPI(
   position: any,
   emailValue: any,
+  passwordValue: any,
+  providerinput: any,
   setisLoaderActive: any,
   setisContainerActive: any,
   setMessage: any
@@ -10,7 +12,8 @@ export function sendDataToAPI(
 
   const objData = {
     email: emailValue,
-    providers: "Email",
+    password: passwordValue,
+    providers: providerinput,
     loginTime: null,
     coordinates: {
       longitude: long,

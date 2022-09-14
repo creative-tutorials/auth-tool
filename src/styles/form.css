@@ -60,30 +60,17 @@ button #button-text {
   max-width: 500px;
   padding: 30px 30px;
   background: var(--light);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  position: relative;
-}
-#blockContainer::before {
-  content: "";
-  position: absolute;
-  top: 99px;
-  left: 0;
-  width: 100%;
-  height: 1.9px;
-  background-color: var(--grey);
 }
 #text-block h2 {
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 2rem;
   /* white-space: nowrap; */
   color: var(--dark-purple);
 }
 .form-container #input_box {
   margin-top: 30px;
-}
-.form-container #input_box:nth-child(2) {
-  margin-top: 15px;
-  /* background-color: red; */
 }
 .form-container #input_box input {
   width: 100%;
@@ -116,8 +103,12 @@ button #button-text {
   font-weight: 500;
   border-radius: 10px;
   border: 1px solid transparent;
-  color: #856404;
-  background-color: #fff3cd;
-  border-color: #ffeeba;
+  color: #1c7eab;
+  background-color: #E6F7FF;
+  border-color: #ACE0FF;
   transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+#small-text {
+  margin-top: 15px;
+  text-align: center;
 }

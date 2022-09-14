@@ -12,7 +12,7 @@ const dashboardComponent = () => {
   const [isRendered, setisRendered] = useState(false);
   let isLoaded = false;
   /* A reference to the div with the class name `_c9`. */
-  const div:any = useRef();
+  const div: any = useRef();
 
   useEffect(() => {
     return () => {
@@ -47,7 +47,7 @@ const dashboardComponent = () => {
             (item: {
               email: any;
               providers: any;
-              logtime: any;
+              loginTime: any;
               street: any;
               coordinates: any;
             }) => {
@@ -57,7 +57,7 @@ const dashboardComponent = () => {
                * @param {any}  - email -&gt; email of the user
                * @param {any} email - string
                * @param {any} provider - "google"
-               * @param {any} logtime - "2019-01-01T00:00:00.000Z"
+               * @param {any} loginTime - "2019-01-01T00:00:00.000Z"
                * @param {any} street - is the street name
                * @param {any} coordinates - [longitude, latitude]
                */
@@ -65,20 +65,20 @@ const dashboardComponent = () => {
                 this: any,
                 email: any,
                 provider: any,
-                logtime: any,
+                loginTime: any,
                 street: any,
                 coordinates: any
               ) {
                 this.userEmail = email;
                 (this.providers = provider),
-                  (this.logintime = logtime),
+                  (this.logintime = loginTime),
                   (this.area = street),
                   (this.coord = coordinates);
               }
               const myoptions = new (Opt as any)(
                 item.email,
                 item.providers,
-                item.logtime,
+                item.loginTime,
                 item.street,
                 item.coordinates
               );
@@ -91,6 +91,7 @@ const dashboardComponent = () => {
               <td>${myoptions.logintime}</td>
               <td>${myoptions.area}</td>
             </tr>`;
+              /* Checking if the value of the key `providers` is undefined. */
               const checkProvider = myoptions.providers;
               if (checkProvider === undefined) {
                 console.warn(`Provider ${checkProvider} not found`);
@@ -143,7 +144,9 @@ const dashboardComponent = () => {
               <div className="_userSession">
                 <div className="_session_table">
                   <div id="name">Latest sessions</div>
-                  <a href="/sessions" id="view">View All</a>
+                  <a href="/sessions" id="view">
+                    View All
+                  </a>
                 </div>
                 <div className="_c9" ref={div}>
                   {/*  */}

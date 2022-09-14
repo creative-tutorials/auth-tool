@@ -28,8 +28,8 @@ When you add new session or load the dashboard page, you are making a request to
 
 ## How to use the App
 
-*   To get started, you must first have an account with us, to do so create an account using the method that pops up on the app
-*   After you've successfully created an account, you must remember to validate your account otherwise it will be deleted with 7 days
+*   To get started, you must first have an account with us, to do so create an account using the method that pops up on the app e.g `Email method` or `SignInWithGoogle` Method
+*   After you've successfully created an account, you must remember to validate your account otherwise it will be deleted within 7 days
 *   Once that process is completed you can start adding new session login, also note that when the session page loads you get an example session already added, this is to brief out what's going on here, so you get a better understanding of which information you're giving to us.
 *   You can add as many sessions as you want, with no limit.
 
@@ -66,7 +66,11 @@ More features are coming soon 👐
 
 We don't store your password, we only store the information that you provide to us.
 
-For more information seek => [blog](https://github.com)
+For more information seek => [blog](https://github.com/creative-tutorials/auth-tool)
+
+### 📑 LICENSE
+
+Licensed Under - [ApacheLicenses](https://github.com/creative-tutorials/auth-tool/blob/master/LICENSE)
 
 ### More Information
 

@@ -35,7 +35,10 @@
   margin-bottom: 20px;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  /* border: 2px solid var(--grey); */
+}
+#k-list:hover {
+  color: var(--dark-purple);
 }
 #k-list img {
   width: 30px;

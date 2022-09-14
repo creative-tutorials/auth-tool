@@ -13,11 +13,13 @@ function EmailComponent() {
   let status = CheckValidation();
   const EmailInputValue: any = useRef();
   const PasswordInputValue: any = useRef();
+  const ProviderInputValue: any = useRef()
   const handleRequest = async () => {
     const emailValue = EmailInputValue.current.value;
     const passwordValue = PasswordInputValue.current.value;
+    const providerinput = ProviderInputValue.current.value;
 
-    if (!emailValue || !passwordValue) {
+    if (!emailValue || !passwordValue || !providerinput) {
       setisAllowed(false);
     } else {
       /* It's a function that checks if the request is valid. */
@@ -43,6 +45,8 @@ function EmailComponent() {
         sendDataToAPI(
           position,
           emailValue,
+          passwordValue,
+          providerinput,
           setisLoaderActive,
           setisContainerActive,
           setMessage
@@ -70,11 +74,13 @@ function EmailComponent() {
     <div id="firstBlock">
       <div id="blockContainer">
         <div id="text-block">
-          <h2>Add your session using Email & Password</h2>
+          <h2>Hi There!</h2>
+          <p id="small-text">Create new session by providing the email address, password and provider</p>
         </div>
         <FormContainer
           EmailInputValue={EmailInputValue}
           PasswordInputValue={PasswordInputValue}
+          ProviderInputValue={ProviderInputValue}
           handleRequest={handleRequest}
           isLoaderActive={isLoaderActive}
         />

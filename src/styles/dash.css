@@ -17,13 +17,11 @@
   position: fixed;
   left: 0;
   top: 0;
-  width: 250px;
+  width: 220px;
   height: 100%;
   background: var(--light);
   padding: 20px;
-  border-radius: 5px;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
-  border-right: 3px solid var(--purple);
   z-index: 999;
   flex-wrap: wrap;
 }
@@ -39,19 +37,16 @@
   display: flex;
   align-items: center;
   padding: 20px;
-  background-color: var(--light);
   margin-bottom: 10px;
   border-radius: 5px;
-  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 .list_components ._list a {
-  color: #000000;
+  color: #797979;
   text-decoration: none;
 }
 ._list:hover {
-  border-right: 3px solid var(--purple);
   padding-left: 10px;
   color: var(--purple);
 }
@@ -62,8 +57,14 @@
   margin-right: 5px;
   font-size: 1.4rem;
 }
+._list ._list_icon i {
+  color: #797979;
+}
+._list:hover ._list_icon i {
+  color: var(--purple);
+}
 ._list ._list_text {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .col-right_s1 {
@@ -107,18 +108,6 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
-}
-._session_table {
-  position: relative;
-}
-._session_table::before {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  width: 100%;
-  height: 1.2px;
-  background: var(--grey);
-  border-radius: 5px;
 }
 ._session_table #name {
   font-weight: 500;
