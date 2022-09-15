@@ -5,6 +5,7 @@ import SignupComponent from "./components/Auth/Signup";
 import LoginComponent from "./components/Auth/Login";
 import EmailComponent from "./components/Providers/emailSignin";
 import SessionStorage from "./components/sessions/sessions";
+import TokenComponent from "./components/token/tokens";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<LoginComponent />}></Route>
         <Route path="/provider/email" element={<EmailComponent />}></Route>
         <Route path="/sessions" element={<SessionStorage />}></Route>
+        <Route path="/tokens" element={<TokenComponent />}></Route>
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,30 @@
+button {
+  padding: 18px;
+  width: 100px;
+  background-color: var(--purple);
+  border: none;
+  outline: none;
+  color: #fff;
+  margin-left: 10px;
+}
+button i {
+    font-size: 1rem;
+}
+.a6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.g3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+}
+.g3 input {
+    width: 100%;
+    padding: 15px;
+}

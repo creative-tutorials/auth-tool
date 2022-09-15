@@ -94,9 +94,8 @@ header {
   margin-bottom: 20px;
   border-radius: 5px;
 }
-#req-password {
+.req-btn {
   padding: 10px;
-  background-color: none;
   width: 150px;
   background-color: var(--purple);
   border: none;

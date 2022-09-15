@@ -20,7 +20,6 @@ function SessionStorage() {
   });
 
   async function loadSessions() {
-    let count = 0;
     try {
       const response = await fetch("http://localhost:4000/api/sessions", {
         method: "GET",
